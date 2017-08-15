@@ -1,0 +1,35 @@
+{
+  "todos": [
+    {
+      "id": 0,
+      "text": "buy groceries",
+      "complete": false
+    },
+    {
+      "id": 1,
+      "text": "do homework",
+      "complete": false
+    },
+    {
+      "id": 2,
+      "text": "clean room",
+      "complete": false
+    },
+    {
+      "id": 3,
+      "text": "wash clothes",
+      "complete": true
+    },
+    {
+      "id": 4,
+      "text": "put clothes away",
+      "complete": false
+    },
+    {
+      "id": 5,
+      "text": "buy birthday gifts",
+      "complete": true
+    }
+  ],
+  "_locals": {}
+}
