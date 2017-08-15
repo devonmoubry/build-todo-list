@@ -1,26 +1,27 @@
-function renderTodos() {
+(function () {
   let addToDoButton = document.getElementById('addToDoButton');
-  let addToDoText = document.getElementById('addToDoInput');
-  addToDoButton.addEventListener('click', sendAddToDo, false);
+  let addToDoInput = document.getElementById('addToDoInput');
+  addToDoButton.addEventListener('click', sendAddTodo, false);
 
-  function sendAddToDo() {
-    let text = addToDoText.value;
-    let url = '/todo/' + 'new' + '/status/' + 'new' + '/text' + text;
-    let formsBody = 'FormData() won’t work';
+  function sendAddTodo () {
+    let text = addToDoInput.value;
+    let url = '/todo/' + 'new' + '/status/' + 'new' + '/text/' + text;
+    let formsBody = 'FormData() won\'t work';
     let pageRefresh = true;
     postFetch(url, formsBody, pageRefresh);
   }
 
-  let classname = document.getElementsbyClassName('checkbox');
+  let classname = document.getElementsByClassName("checkboxInput");
   for (let i = 0; i < classname.length; i++) {
     classname[i].addEventListener('change', sendForm, false);
   }
 
-  function sendForm() {
+  function sendForm () {
     let complete = false;
     if (this.checked) {
       complete = true;
     }
+
     let text = this.getAttribute('data-text');
     let url = '/todo/' + this.id + '/status/' + complete + '/text/' + text;
     let formsBody = 'FormData() won’t work';
@@ -28,7 +29,8 @@ function renderTodos() {
     postFetch(url, formsBody, pageRefresh);
   }
 
-  function postFetch(url, formsBody, pageRefresh) {
+  function postFetch (url, formsBody, pageRefresh) {
+    console.log(pageRefresh);
     fetch(url, {
       method: 'post',
       body: formsBody,
@@ -44,4 +46,4 @@ function renderTodos() {
       }
     });
   }
-}
+}());

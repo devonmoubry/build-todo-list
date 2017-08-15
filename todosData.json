@@ -29,6 +29,11 @@
       "id": 5,
       "text": "buy birthday gifts",
       "complete": true
+    },
+    {
+      "id": 6,
+      "text": "feed kitters",
+      "complete": false
     }
   ],
   "_locals": {}

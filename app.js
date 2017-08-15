@@ -23,7 +23,7 @@ app.set('views', './views');
 let tasks = jsonfile.readFileSync(todosFile);
 
 app.get("/", function (req, res) {
-  res.render('todo', tasks);
+  return res.render('todo', tasks);
 });
 
 app.post("/todo/:todoId/status/:status/text/:text", function (req, res) {
@@ -40,12 +40,12 @@ app.post("/todo/:todoId/status/:status/text/:text", function (req, res) {
 
   if (task[0]) {
     task[0].complete = isTrueStatus;
-    let status = true;
+    let addNewBool = true;
     for (let i = 0; i < tasks.todos.length; i++) {
       if (tasks.todos[i].id === task[0].id) {
         console.log('updated');
         tasks.todos[i].id = task[0].id;
-        status = false;
+        addNewBool = false;
       }
     }
   } else {
